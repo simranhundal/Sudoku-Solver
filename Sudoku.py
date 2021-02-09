@@ -83,6 +83,15 @@ def is_valid(board, num, pos):
     for i in range(9):
         if board[pos[0]][i] == num and pos[1] != i:
             return False
+    # check box
+    # finding box cords
+    xbox = pos[0] // 3
+    ybox = pos[1] // 3
+
+    for i in range(xbox*3, xbox*3 + 3):
+        for j in range(ybox*3, ybox*3 + 3):
+            if board[i][j] == num and (i, j) != pos:
+                return False
 
     return True
 
